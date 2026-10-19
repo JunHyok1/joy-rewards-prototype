@@ -28,3 +28,5 @@ The default theme is JOY. Pepsi and 7UP use JOY because no dedicated theme was s
 Browser checks covered search, brand and availability filters, market empty states, disabled ended entries, onboarding acknowledgement, invalid-code feedback, recoverable submission errors, draw confirmation, instant winning results, stored activity, brand following and preference saving. Layouts were reviewed at 390px and desktop widths. JavaScript syntax and local asset presence were checked.
 
 This is implementation verification, not user validation or a complete WCAG audit. Before launch, validate with target-market participants and assistive-technology users, then integrate approved rules, real authentication, verified eligibility, secure entry services and prize fulfilment.
+
+Visual update (18 October 2026): full-width JOY campaign layout, live site lifestyle and product artwork, official brand logos and account buttons. New sessions start as a guest; use the footer to switch to the sample member. These public brand assets are included for this design demonstration.

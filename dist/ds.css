@@ -1,0 +1,467 @@
+/* AI-Assisted Design System (Figma AJ0GKjFjDNvEsD4MfdyZaN), applied 21 October 2026 via the Figma MCP.
+   Components: Button 11:183, Icon Button 16:35, Text Field 25:55, Accordion 27:41, Card 29:41, Badge 30:7,
+   Breadcrumb 32:2, Pagination Dots 33:5. Tokens live in tokens.css; this file only consumes them.
+   Base rules use a repeated .ds scope so they win over the older one-off rules in wireframe.css. */
+
+:root{--wf-blue:var(--color-action-primary);--wf-deep:var(--color-action-primary-hover);--wf-ink:var(--color-text-default);--wf-grey:var(--color-surface-subtle);--wf-line:var(--color-border-default);--wf-yellow:var(--color-brand-accent)}
+body.ds{font:400 var(--font-size-16)/var(--line-height-20) var(--font-family-body)}
+.ds .icon.ds-icon{stroke-width:2}
+
+/* ---------- Text styles (nine, letter-spacing 0) ---------- */
+.ds.ds.ds :is(.wf-register h1,.wf-greet h1,.wf-detail-title h1){font:700 var(--font-size-60)/var(--line-height-64) var(--font-family-body);letter-spacing:0}
+.ds.ds.ds :is(.wf-h2,.wf-caps-h,.wf-news h2,.wf-carousel .wf-slide h2,.wf-brand-band h1,.wf-news-text h3,.wf-reveal h1){font:700 var(--font-size-36)/var(--line-height-40) var(--font-family-body);letter-spacing:0;color:inherit}
+.ds.ds.ds :is(.wf-h2,.wf-caps-h,.wf-news h2,.wf-news-text h3){color:var(--color-text-default)}
+.ds.ds.ds :is(.wf-card h3,.wf-brand .wf-wide h3){font:700 var(--font-size-24)/var(--line-height-28) var(--font-family-body);letter-spacing:0}
+.ds.ds.ds :is(.ds-card-prize>strong,.wf-faq summary,.faq summary){font:700 var(--font-size-20)/var(--line-height-24) var(--font-family-body);letter-spacing:0}
+.ds.ds.ds :is(.wf-register p,.ds-step-text,.wf-brand-band p,.wf-meter-copy){font:400 var(--font-size-20)/var(--line-height-24) var(--font-family-body);font-style:normal;letter-spacing:0}
+.ds.ds.ds :is(.wf-card-copy,.wf-news-text p,.wf-news p,.wf-steps-note,.wf-terms p,.wf-brand-more p,.wf-filter-bar label,.wf-faq details p,.faq details p){font:400 var(--font-size-16)/var(--line-height-20) var(--font-family-body);letter-spacing:0}
+.ds.ds.ds :is(.wf-card-meta,.ds-card-step .ds-card-img p,.wf-result-count,.wf-prize-note){font:400 var(--font-size-14)/var(--line-height-18) var(--font-family-body);letter-spacing:0}
+.ds.ds.ds :is(.wf-subnav a:not(.wf-pill),.wf-detail-links a,.ds-step-kicker){font:600 var(--font-size-16)/var(--line-height-20) var(--font-family-body);text-transform:uppercase;letter-spacing:0}
+.ds.ds.ds :is(.wf-dates,.wf-caps,.ds-helper,.wf-news-tag,.ds-card-qty,.wf-meter-note){font:400 var(--font-size-14)/var(--line-height-16) var(--font-family-body);letter-spacing:0;text-transform:none}
+
+/* ---------- Button: Primary / Secondary / Tertiary on Light or Dark ---------- */
+:where(.wf-btn,.wf-pill,.wf-link){--btn-bg:transparent;--btn-border:var(--color-border-action);--btn-fg:var(--color-text-link);--btn-ring:var(--color-border-focus)}
+.ds.ds.ds.ds :is(.wf-btn,.wf-pill){display:inline-flex;align-items:center;justify-content:center;gap:var(--spacing-12);min-width:0;min-height:0;padding:var(--spacing-12) var(--spacing-20);border:var(--border-width-thick) solid var(--btn-border);border-radius:var(--radius-control);background:var(--btn-bg);color:var(--btn-fg);font:600 var(--font-size-16)/var(--line-height-20) var(--font-family-body);letter-spacing:0;text-transform:uppercase;text-decoration:none;white-space:nowrap;box-shadow:none;transform:none;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
+.ds.ds.ds.ds :is(.wf-btn,.wf-pill):hover{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.ds.ds.ds.ds :is(.wf-btn,.wf-pill):focus-visible{outline:var(--border-width-thick) solid var(--btn-ring);outline-offset:4px}
+.ds.ds.ds.ds :is(.wf-btn,.wf-pill) .icon{width:16px;height:16px}
+/* Secondary, light (default) */
+.ds :is(.wf-pill,.wf-card.is-entered .wf-pill,.wf-card.is-expired .wf-pill,.wf-wide.is-expired .wf-pill):active{--btn-fg:var(--color-text-link-pressed);text-decoration:underline}
+/* Primary, light */
+.ds :is(.wf-pill.blue,.wf-subnav .wf-pill.yellow,.wf-center .wf-pill.yellow,.wf-row>.wf-pill.yellow,.wf-pill.disabled){--btn-bg:var(--color-action-primary);--btn-border:var(--color-action-primary);--btn-fg:var(--color-text-on-action)}
+.ds :is(.wf-pill.blue,.wf-subnav .wf-pill.yellow,.wf-center .wf-pill.yellow,.wf-row>.wf-pill.yellow):hover{--btn-bg:var(--color-action-primary-hover);--btn-border:var(--color-action-primary-hover)}
+.ds :is(.wf-pill.blue,.wf-subnav .wf-pill.yellow,.wf-center .wf-pill.yellow,.wf-row>.wf-pill.yellow):active{--btn-bg:var(--color-action-primary-pressed);--btn-border:var(--color-action-primary-pressed);--btn-fg:var(--color-text-on-action-pressed);text-decoration:none}
+/* Primary, dark (on brand colour and inverse surfaces) */
+.ds :is(.wf-btn.yellow,.wf-card:not(.is-entered):not(.is-expired) .wf-pill,.wf-wide:not(.is-expired) .wf-pill.yellow,.wf-pill.white){--btn-bg:var(--color-action-inverse);--btn-border:var(--color-border-action-inverse);--btn-fg:var(--color-text-on-action-inverse);--btn-ring:var(--color-border-focus-inverse)}
+.ds :is(.wf-btn.yellow,.wf-card:not(.is-entered):not(.is-expired) .wf-pill,.wf-wide:not(.is-expired) .wf-pill.yellow,.wf-pill.white):active{--btn-fg:var(--color-text-on-action-inverse-pressed);text-decoration:none}
+/* Secondary, dark */
+.ds :is(.wf-btn.ghost,.wf-pill.ghost-white,.wf-pill.ghost-white[aria-pressed=true]){--btn-bg:transparent;--btn-border:var(--color-border-action-inverse);--btn-fg:var(--color-text-on-inverse);--btn-ring:var(--color-border-focus-inverse)}
+.ds.ds.ds.ds .wf-pill.ghost-white[aria-pressed=true] .icon{fill:currentColor}
+/* Disabled */
+.ds.ds.ds.ds :is(.wf-pill.disabled,.wf-btn:disabled,.wf-pill:disabled){opacity:var(--opacity-disabled);cursor:not-allowed;text-decoration:none}
+/* Tertiary (text link) */
+.ds.ds.ds.ds .wf-link{display:inline-flex;align-items:center;gap:var(--spacing-8);padding:var(--spacing-12) 0;border:0;border-radius:var(--radius-small);background:none;color:var(--btn-fg);font:600 var(--font-size-16)/var(--line-height-20) var(--font-family-body);text-transform:uppercase;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.ds.ds.ds.ds .wf-link:hover{text-decoration:none}
+.ds.ds.ds.ds .wf-link:focus-visible{outline:var(--border-width-thick) solid var(--btn-ring);outline-offset:2px}
+.ds.ds.ds.ds .wf-link.light{--btn-fg:var(--color-text-on-inverse);--btn-ring:var(--color-border-focus-inverse)}
+
+/* ---------- Icon Button: 48px round ---------- */
+:where(.wf-save,.wf-arrow){--ib-bg:var(--color-action-primary);--ib-border:var(--color-action-primary);--ib-fg:var(--color-text-on-action);--ib-ring:var(--color-border-focus)}
+.ds.ds.ds.ds :is(.wf-save,.wf-arrow){display:grid;place-items:center;flex:none;width:48px;height:48px;padding:var(--spacing-16);border:var(--border-width-thick) solid var(--ib-border);border-radius:var(--radius-full);background:var(--ib-bg);color:var(--ib-fg);cursor:pointer;transition:background-color .15s,border-color .15s}
+.ds.ds.ds.ds :is(.wf-save,.wf-arrow) .icon{width:16px;height:16px}
+.ds :is(.wf-save,.wf-arrow):hover{--ib-bg:var(--color-action-primary-hover);--ib-border:var(--color-action-primary-hover)}
+.ds :is(.wf-save,.wf-arrow):active{--ib-bg:var(--color-action-primary-pressed);--ib-border:var(--color-action-primary-pressed)}
+.ds.ds.ds.ds :is(.wf-save,.wf-arrow):focus-visible{outline:var(--border-width-thick) solid var(--ib-ring);outline-offset:4px}
+.ds :is(.wf-card:not(.is-entered):not(.is-expired) .wf-save,.wf-card:not(.is-entered):not(.is-expired) .wf-save:hover,.wf-card:not(.is-entered):not(.is-expired) .wf-save:active){--ib-bg:var(--color-action-inverse);--ib-border:var(--color-border-action-inverse);--ib-fg:var(--color-text-on-action-inverse);--ib-ring:var(--color-border-focus-inverse)}
+.ds.ds.ds.ds .wf-save[aria-pressed=true] .icon{fill:currentColor}
+
+/* ---------- Badge: Active / Ended ---------- */
+.ds-badge{display:inline-flex;align-items:center;align-self:flex-start;padding:var(--spacing-8) var(--spacing-16);border-radius:var(--radius-full);font:400 var(--font-size-16)/var(--line-height-20) var(--font-family-body);white-space:nowrap}
+.ds-badge.active{background:var(--color-feedback-active);color:var(--color-text-on-feedback-active)}
+.ds-badge.expired{background:var(--color-feedback-expired);color:var(--color-text-on-feedback-expired)}
+.ds .wf-card .ds-badge{position:absolute;top:var(--spacing-24);left:var(--spacing-24)}
+.ds .wf-card-meta li.is-entered{font-weight:600}
+
+/* ---------- Text Field (also used for every select and input) ---------- */
+.ds-field{display:flex;flex-direction:column;gap:var(--spacing-8);width:100%;max-width:440px}
+.ds.ds.ds .ds-field label,.ds.ds.ds :is(.wf-filter-bar label,.field>label){margin:0;font:400 var(--font-size-16)/var(--line-height-20) var(--font-family-body);color:var(--color-text-default)}
+.ds.ds.ds :is(.ds-field input,.wf-filter-bar select,.field input:not([type=checkbox]),.field select){width:100%;min-height:0;height:auto;max-width:none;padding:var(--spacing-12) var(--spacing-20);border:var(--border-width-thick) solid var(--color-text-secondary);border-radius:var(--radius-control);background-color:var(--color-surface-default);color:var(--color-text-default);font:400 var(--font-size-16)/var(--line-height-20) var(--font-family-body);box-shadow:none}
+.ds.ds.ds :is(.ds-field input,.wf-filter-bar select,.field input:not([type=checkbox]),.field select):hover{border-color:var(--color-border-action)}
+.ds.ds.ds :is(.ds-field input,.wf-filter-bar select,.field input:not([type=checkbox]),.field select):focus{outline:var(--border-width-thick) solid var(--color-border-focus);outline-offset:4px;border-color:var(--color-border-action)}
+.ds.ds.ds :is(.ds-field.is-error input,.field input[aria-invalid=true]){border-color:var(--color-feedback-error)}
+.ds .ds-helper{color:var(--color-text-secondary)}
+.ds .ds-field.is-error .ds-helper{color:var(--color-feedback-error)}
+.ds.ds.ds .wf-filter-bar .field{gap:var(--spacing-8)}
+.ds .wf-news-form{gap:var(--spacing-24)}
+
+/* ---------- Accordion (FAQ) ---------- */
+.ds .wf-faq-list{display:grid;gap:var(--spacing-20)}
+.ds.ds.ds :is(.wf-faq,.faq) details{margin:0;padding:0 var(--spacing-8);border:0;border-radius:var(--radius-container);background:var(--color-surface-subtle)}
+.ds.ds.ds .faq details+details{margin-top:var(--spacing-20)}
+.ds.ds.ds :is(.wf-faq,.faq) summary{display:flex;align-items:center;gap:var(--spacing-24);padding:var(--spacing-12) 0;color:var(--color-text-default);list-style:none;cursor:pointer}
+.ds.ds.ds :is(.wf-faq,.faq) summary::-webkit-details-marker{display:none}
+.ds.ds.ds :is(.wf-faq,.faq) summary::after{display:none}
+.ds.ds.ds :is(.wf-faq,.faq) summary:hover{color:var(--color-text-hover)}
+.ds.ds.ds :is(.wf-faq,.faq) summary .ds-icon{width:16px;height:16px;margin-left:auto;color:var(--color-text-link);transition:transform .2s}
+.ds.ds.ds :is(.wf-faq,.faq) details[open] summary .ds-icon{transform:rotate(180deg)}
+.ds.ds.ds :is(.wf-faq,.faq) summary:focus-visible{outline:none}
+.ds.ds.ds :is(.wf-faq,.faq) details:has(summary:focus-visible){outline:var(--border-width-thick) solid var(--color-border-focus);outline-offset:2px}
+.ds.ds.ds :is(.wf-faq,.faq) details p{margin:0;padding:0 0 var(--spacing-16);color:var(--color-text-secondary)}
+
+/* ---------- Card: Step ---------- */
+.ds-steps{list-style:none;margin:0 auto;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--spacing-40)}
+.ds-card-step{position:relative;flex:none;width:328px;height:420px}
+.ds-step-circle{position:absolute;left:0;top:16px;width:328px;height:328px;border-radius:var(--radius-full);background:var(--color-brand-primary)}
+[data-theme="7UP"] .ds-step-circle,.wf-slide-circle[data-theme="7UP"],.wf-wide-circle[data-theme="7UP"],[data-theme="7UP"] .ds-card-prize,[data-theme="7UP"].ds-card-prize{background:#007a37}
+.ds-num{position:absolute;left:140px;top:46px;width:48px;height:48px;display:grid;place-items:center;border-radius:var(--radius-full);background:var(--color-surface-default);color:var(--color-text-default);font:700 var(--font-size-20)/var(--line-height-24) var(--font-family-body)}
+.ds-step-text{position:absolute;left:49px;top:134px;width:230px;margin:0;text-align:center;color:var(--color-text-on-inverse)}
+.ds-step-kicker{display:block;margin-bottom:var(--spacing-4)}
+.ds-card-step .ds-card-img{position:absolute;left:20px;top:252px;width:287px;height:151px;display:flex;align-items:center;justify-content:center;gap:var(--spacing-16);padding:var(--spacing-16);border-radius:var(--radius-container);background:var(--color-surface-subtle);overflow:hidden;text-align:left}
+.ds-card-step .ds-card-img img{max-width:100%;max-height:100%;object-fit:contain}
+.ds-card-step .ds-card-img p{margin:0;color:var(--color-text-default)}
+.ds-step-icon{flex:none;width:48px;height:48px;display:grid;place-items:center;border-radius:var(--radius-full);background:var(--color-surface-default);color:var(--color-text-link)}
+.ds-step-icon .icon{width:24px;height:24px}
+.ds .ds-steps .wf-code{transform:rotate(-6deg);padding:12px 18px}
+.ds .ds-steps .wf-code strong{font-size:24px}
+.ds .ds-card-step:first-child .ds-card-img img{width:100%;height:100%;object-fit:cover;object-position:38% 66%;transform:scale(1.7);transform-origin:36% 64%}
+.ds.ds .wf-h2.center{margin-bottom:var(--spacing-40)}
+
+/* ---------- Card: Prize ---------- */
+.ds.ds .wf-prizes{background:var(--color-surface-default);color:var(--color-text-default)}
+.ds.ds .wf-prizes .wf-caps-h{color:var(--color-text-default)}
+.ds.ds .wf-prize-wrap{max-width:1120px}
+.ds.ds .wf-prize-track{gap:var(--spacing-32);padding:var(--spacing-4)}
+.ds-card-prize{position:relative;flex:0 0 328px;width:328px;height:420px;overflow:hidden;border-radius:var(--radius-card);background:var(--color-brand-primary);color:var(--color-text-on-inverse);scroll-snap-align:start;list-style:none}
+.ds-card-prize .ds-card-img{position:absolute;left:32px;top:124px;width:263px;height:139px;display:grid;place-items:center;overflow:hidden;border-radius:var(--radius-container);background:var(--color-surface-subtle)}
+.ds-card-prize .ds-card-img img{width:80%;height:80%;object-fit:contain}
+.ds-card-prize .wf-prize-ticket{transform:rotate(-6deg);padding:14px 20px}
+.ds-card-prize>strong{position:absolute;left:49px;top:348px;width:230px;text-align:center}
+.ds-card-qty{position:absolute;left:49px;top:300px;width:230px;text-align:center;color:var(--color-text-on-inverse)}
+.ds.ds .wf-prize-note{background:var(--color-surface-subtle);color:var(--color-text-default)}
+.ds.ds .wf-prizes .wf-arrow{--ib-bg:var(--color-action-primary);--ib-border:var(--color-action-primary);--ib-fg:var(--color-text-on-action)}
+
+/* ---------- Card: Content (brand news) ---------- */
+.ds.ds .wf-news-row{grid-template-columns:565fr 511fr;gap:var(--spacing-24);align-items:stretch}
+.ds.ds .wf-news-media{aspect-ratio:565/403;border-radius:var(--radius-card);box-shadow:none}
+.ds.ds .wf-news-text{justify-content:center;gap:var(--spacing-24);padding:var(--spacing-48) var(--spacing-24)}
+.ds.ds .wf-news-text .wf-row{margin-top:var(--spacing-16);gap:var(--spacing-16)}
+.ds.ds .wf-news-tag{color:var(--color-text-secondary);text-transform:uppercase}
+
+/* ---------- Breadcrumb ---------- */
+.ds.ds .breadcrumb-bar{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-12);padding:var(--spacing-8) var(--spacing-40);background:var(--color-surface-default);color:var(--color-text-default);border-top:var(--border-width-thin) solid var(--color-border-action);font:400 var(--font-size-16)/var(--line-height-20) var(--font-family-body);text-transform:uppercase}
+.ds.ds .breadcrumb-bar a{color:var(--color-text-default);text-decoration:none;border-radius:var(--radius-small)}
+.ds.ds .breadcrumb-bar a:hover{text-decoration:underline}
+.ds.ds .breadcrumb-bar a:focus-visible{outline:var(--border-width-thick) solid var(--color-border-focus);outline-offset:2px}
+.ds.ds .breadcrumb-bar>*+*::before{content:'/';margin-right:var(--spacing-12);opacity:1}
+.ds.ds .breadcrumb-bar>*:last-child{font-weight:600}
+
+/* ---------- Pagination Dots ---------- */
+.ds.ds .wf-dots{gap:var(--spacing-8);align-items:center}
+.ds.ds .wf-dots button{width:8px;height:8px;border-radius:var(--radius-full);background:var(--color-text-secondary)}
+.ds.ds .wf-dots button[aria-current=true]{width:59px;background:var(--color-action-primary)}
+
+/* ---------- Shape and spacing ---------- */
+.ds.ds :is(.wf-brand .wf-wide,.wf-others-track,.wf-news-feature){border-radius:var(--radius-card)}
+.ds.ds .wf-section{margin-top:var(--spacing-80)}
+.ds.ds .wf-band{padding-block:var(--spacing-80)}
+.ds.ds .wf-brand-section{margin-top:var(--spacing-80)}
+
+@media(max-width:700px){
+.ds.ds.ds :is(.wf-register h1,.wf-greet h1,.wf-detail-title h1){font-size:var(--font-size-36);line-height:var(--line-height-40)}
+.ds.ds.ds :is(.wf-h2,.wf-caps-h,.wf-news h2,.wf-carousel .wf-slide h2,.wf-brand-band h1,.wf-news-text h3,.wf-reveal h1){font-size:var(--font-size-24);line-height:var(--line-height-28)}
+.ds.ds .breadcrumb-bar{padding:var(--spacing-8) var(--spacing-16);font-size:var(--font-size-14);line-height:var(--line-height-18);gap:var(--spacing-8)}
+.ds.ds .breadcrumb-bar>*+*::before{margin-right:var(--spacing-8)}
+.ds.ds .wf-news-row,.ds.ds .wf-news-row.flip{grid-template-columns:1fr}
+.ds.ds .wf-news-text{padding:0}
+.ds-steps{gap:var(--spacing-24)}
+.ds.ds .wf-prize-track{gap:var(--spacing-16)}
+}
+.ds.ds .wf-steps{background:var(--color-surface-default)}
+
+/* JOY as an explicit theme, so JOY-blue surfaces inside a brand page (cards, hero slides) reset to JOY tokens */
+[data-theme="JOY"]{--color-surface-default:#fff;--color-surface-subtle:#f4f4f4;--color-surface-inverse:#0e38df;--color-text-default:#333;--color-text-secondary:#666;--color-text-on-inverse:#fff;--color-text-on-action:#fff;--color-text-on-action-pressed:#fff;--color-text-on-action-inverse:#1443ff;--color-text-link:#1443ff;--color-text-link-pressed:#1443ff;--color-text-hover:#1443ff;--color-text-on-action-inverse-pressed:#0024b5;--color-text-on-feedback-active:#0a0f36;--color-text-on-feedback-expired:#fff;--color-action-primary:#1443ff;--color-action-primary-hover:#0e38df;--color-action-primary-pressed:#0024b5;--color-action-inverse:#fff;--color-border-default:#ededed;--color-border-action:#1443ff;--color-border-focus:#0a0f36;--color-border-focus-inverse:#fff;--color-border-action-inverse:#fff;--color-brand-primary:#1443ff;--color-brand-accent:#75def2;--color-feedback-active:#ebff40;--color-feedback-expired:#b21119;--color-feedback-error:#b21119}
+
+/* ---------- Real JOY GB imagery (assets/live), 21 October 2026 ---------- */
+/* Pagination dots measured on joy-pepsico.eu/en-gb: 8x8 #333, active 60x8 JOY blue, 10px apart */
+.ds.ds .wf-dots{gap:10px}
+.ds.ds .wf-dots button{width:8px;height:8px;background:#333}
+.ds.ds .wf-dots button[aria-current=true]{width:60px;background:var(--color-action-primary)}
+
+/* Teaser photos inside any art circle */
+.ds .card-art.photo{padding:0;overflow:hidden;border-radius:50%;background:#000;filter:none}
+.ds .card-art.photo img.teaser{display:block;width:100%;height:100%;object-fit:cover}
+.ds .card-art.photo.cut{background:none;overflow:visible}
+.ds .card-art.photo.cut img.teaser{object-fit:contain}
+
+/* Promo card: live-site graphic at the same 259 x 402 footprint */
+.ds.ds.ds .wf-card{height:402px;min-height:0;padding:0;display:flex;flex-direction:column;gap:0}
+.ds.ds .wf-card::before{display:none}
+.wf-card-visual{position:relative;flex:none;height:172px;overflow:hidden;background:var(--color-brand-primary)}
+.wf-card[data-theme="7UP"] .wf-card-visual{background:#007a37}
+.wf-card-deco{position:absolute;left:-14px;top:-6px;height:118%;width:auto;pointer-events:none}
+.wf-card-circle{position:absolute;right:-22px;top:12px;width:184px;height:184px;border-radius:50%;box-shadow:-6px 6px 22px #0006}
+.wf-card-circle.cut{box-shadow:none}
+.wf-card-circle .card-art{width:100%;height:100%;min-height:0;border-radius:50%;filter:none}
+.wf-card-circle .card-art:not(.photo){background:radial-gradient(circle at 40% 40%,#ffffff40,#00000060 72%),var(--color-brand-primary)}
+.wf-card-circle .card-art .brand-tag,.wf-card-circle .card-art .disc{display:none}
+.wf-card-circle .card-art .product{width:86%;height:86%;margin:0;object-fit:contain}
+.wf-card-circle .card-art .ticket{transform:scale(.52) rotate(-8deg);margin:0;flex:none}
+.ds.ds .wf-card .ds-badge{top:var(--spacing-16);left:var(--spacing-16);z-index:2}
+.wf-card-body{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:16px 20px 20px}
+.wf-card-logo{display:flex;align-items:center;height:32px;flex:none}
+.wf-card-logo img{height:100%;width:auto;max-width:170px;object-fit:contain;object-position:left center}
+.wf-card-logo.plate{align-self:flex-start;padding:4px 10px;border-radius:8px;background:#fff}
+.wf-card-logo.plate img{height:24px}
+.ds.ds.ds .wf-card h3{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:none}
+.ds.ds .wf-card-meta{gap:4px}
+.ds.ds .wf-card-meta li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.ds.ds .wf-card-meta li .icon{display:inline-block;vertical-align:-3px;margin-right:6px}
+.ds.ds .wf-card-foot{margin-top:auto;padding-top:0}
+.ds.ds .wf-card.is-entered{background:#fff}
+.ds.ds .wf-card.is-expired .wf-card-visual{background:#cfd1d8}
+.ds.ds .wf-card.is-expired .wf-card-circle,.ds.ds .wf-card.is-expired .wf-card-deco{filter:grayscale(1);opacity:.75}
+
+/* Promos hero: teaser photography fills the brand circle, partner lockup above the dates */
+.wf-slide-circle.photo{padding:0;overflow:hidden;background:#000}
+.wf-slide-circle.photo picture,.wf-slide-circle.photo .wf-slide-photo{display:block;width:100%;height:100%}
+.wf-slide-photo{object-fit:cover;object-position:28% 30%}
+.wf-slide-logo{display:block;height:64px;width:auto;max-width:300px;object-fit:contain;object-position:left center}
+
+/* Detail hero + wide cards + news use the teaser photo too */
+.ds .wf-detail-art .card-art.photo{box-shadow:0 18px 40px #0006}
+.ds .wf-wide-circle .card-art.photo{width:100%;height:100%}
+.wf-wide-lockup{height:44px;width:auto;max-width:220px;object-fit:contain;object-position:left center}
+.ds .wf-news-media .card-art.photo{width:100%;height:100%;border-radius:0}
+
+/* Brand news videos */
+.wf-news-media.is-video{background:#000;padding:0;overflow:hidden}
+.wf-news-media.is-video video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+
+/* Brand masthead with the live brand hero photography (logo is part of the image) */
+.ds .wf-brand-mast.photo{background-color:#000;background-size:cover;background-position:center;height:360px}
+
+@media(max-width:700px){
+.wf-slide-logo{height:44px}
+.ds .wf-brand-mast.photo{height:200px}
+.wf-slide-photo{object-position:center 30%}
+}
+.wf-slide-logo.plate,.wf-wide-lockup.plate{background:#fff;border-radius:10px;padding:8px 14px;box-sizing:content-box}
+.wf-slide-logo.plate{height:48px}
+.wf-wide-lockup.plate{height:34px}
+.wf-slide-circle.photo{top:-6%;height:112%}
+.ds.ds .wf-news-row>*{min-width:0}
+.ds.ds .wf-news-media{width:100%;height:auto;align-self:center}
+.ds .wf-brand-mast.photo{height:auto;aspect-ratio:2880/730;min-height:200px}
+.wf-reveal[data-brand="Walkers"] .wf-bowl{background:linear-gradient(#1443ff,#0024b5)}
+.wf-reveal[data-brand="Walkers"] .wf-bowl img{width:180px;height:56px;padding:0;background:none;border-radius:0}
+.ds .wf-brand-mast.photo{min-height:0}
+@media(max-width:700px){.ds .wf-brand-mast.photo{aspect-ratio:auto;height:200px}}
+
+/* ---------- Hero slides as on joy-pepsico.eu/en-gb: promo-coloured background + brand decoration ---------- */
+.ds.ds .wf-carousel .wf-slide{background:#0e38df}
+.ds.ds .wf-carousel .wf-slide[data-brand="Doritos"]{background:#e31722}
+.ds.ds .wf-carousel .wf-slide[data-brand="Pepsi"]{background:#004b93}
+.ds.ds .wf-carousel .wf-slide[data-brand="Rockstar"]{background:#000}
+.ds.ds .wf-carousel .wf-slide[data-brand="7UP"]{background:#007a37}
+.wf-slide-deco{position:absolute;z-index:0;width:200px;height:auto;pointer-events:none}
+.wf-slide-deco.one{left:-100px;top:25px}
+.wf-slide-deco.two{left:35%;bottom:-24px}
+.ds.ds.ds .wf-carousel .wf-slide h2{text-transform:none}
+.ds.ds.ds .wf-carousel .wf-caps{font:600 var(--font-size-16)/22px var(--font-family-body);max-width:440px;color:#fff}
+.ds.ds.ds.ds .wf-carousel .wf-slide .wf-btn{border-radius:44px;padding:12px 24px}
+.ds .wf-carousel .wf-slide .wf-btn{--btn-bg:#fff;--btn-border:#fff;--btn-fg:#0e38df;--btn-ring:#fff}
+.ds .wf-carousel .wf-slide:is([data-brand="Walkers"],[data-brand="JOY"]) .wf-btn{--btn-bg:#ffe600;--btn-border:#ffe600}
+.wf-slide-circle:not(.photo)[data-theme="Doritos"]{background:radial-gradient(circle at 34% 50%,#ffffff38,transparent 55%),#8e0d14}
+.wf-slide-circle:not(.photo)[data-theme="Pepsi"]{background:radial-gradient(circle at 34% 50%,#ffffff38,transparent 55%),#050505}
+
+/* ---------- Promo card: one colour for every brand, logo only, heart top-right, no status badge ---------- */
+.ds.ds.ds .wf-card{background:var(--color-brand-primary)}
+.ds.ds.ds.ds .wf-card .wf-save{position:absolute;top:var(--spacing-16);right:var(--spacing-16);z-index:3}
+.ds.ds .wf-card-foot{justify-content:flex-start}
+.ds.ds .wf-card.is-expired{background:#e4e5ea;color:#4a4d57}
+.ds.ds .wf-card.is-expired .wf-card-visual{background:#cfd1d8}
+.ds.ds .wf-card.is-expired .wf-card-logo img{filter:grayscale(1)}
+
+/* ---------- Promotions page title ---------- */
+.ds.ds .wf-page-title{margin:var(--spacing-48) 0 0}
+.ds.ds .wf-page-title+.wf-filter-bar{margin-top:var(--spacing-24)}
+@media(max-width:700px){.wf-slide-deco{width:120px}.wf-slide-deco.one{top:46%;left:-60px}.wf-slide-deco.two{left:auto;right:-30px;bottom:-10px}}
+
+/* ---------- Promo card v3: white card, full-bleed promo image, flags tab, See promo + heart ---------- */
+.ds.ds .wf-grid{gap:var(--spacing-24)}
+.ds.ds.ds .wf-card{background:var(--color-surface-default);color:var(--color-text-default);border:var(--border-width-thin) solid var(--color-border-default);overflow:hidden}
+.wf-card-media{position:relative;flex:none;height:146px;overflow:hidden;background:#0a0f36}
+.wf-card-img{display:block;width:100%;height:100%;object-fit:cover}
+.wf-card-img.cut{object-fit:cover;object-position:center 40%;transform:scale(1.35)}
+.wf-card-img.brand-photo{object-position:50% 40%}
+.wf-card-img.brand-photo[data-brand="7UP"]{object-position:58% 30%}
+.wf-card-artbox{height:100%}
+.wf-card-artbox .card-art{width:100%;height:100%;min-height:0;border-radius:0;filter:none;background:radial-gradient(circle at 50% 60%,#ffffff33,transparent 60%),var(--color-brand-primary)}
+.wf-card-artbox .brand-tag,.wf-card-artbox .disc{display:none}
+.wf-card-artbox .ticket{transform:scale(.55) rotate(-8deg);margin:0}
+.wf-card-flags{position:absolute;top:0;right:0;z-index:2;display:flex;gap:var(--spacing-8);margin:0;padding:var(--spacing-8) var(--spacing-12);list-style:none;background:var(--color-surface-default);border-radius:0 0 0 var(--radius-container)}
+.wf-flag{display:block;width:22px;height:22px;overflow:hidden;border-radius:var(--radius-full);box-shadow:0 0 0 1px #0a0f3624}
+.wf-flag svg{display:block;width:100%;height:100%}
+.ds.ds.ds .wf-card-body{gap:var(--spacing-12);padding:var(--spacing-20)}
+.ds.ds .wf-card-logo{height:24px}
+.ds.ds .wf-card-logo img{height:24px;max-width:150px}
+.ds.ds .wf-card-logo.on-blue{align-self:flex-start;height:auto;padding:4px 10px;border-radius:var(--radius-small);background:var(--color-action-primary)}
+.ds.ds.ds .wf-card h3,.ds.ds.ds .wf-card h3 a{color:var(--color-text-default)}
+.ds.ds .wf-card-meta{color:var(--color-text-secondary);gap:4px}
+.ds.ds .wf-card-meta li.is-entered{color:var(--color-text-default)}
+.ds.ds .wf-card-foot{display:flex;align-items:center;justify-content:flex-start;gap:var(--spacing-12);margin-top:auto}
+.ds.ds.ds.ds .wf-card .wf-save{position:static}
+/* PepsiCo/JOY primary blue for See promo and the heart, on every white card */
+.ds.ds.ds .wf-card.wf-card .wf-pill.blue{--btn-bg:var(--color-action-primary);--btn-border:var(--color-action-primary);--btn-fg:var(--color-text-on-action);--btn-ring:var(--color-border-focus)}
+.ds.ds.ds .wf-card.wf-card .wf-pill.blue:hover{--btn-bg:var(--color-action-primary-hover);--btn-border:var(--color-action-primary-hover)}
+.ds.ds.ds .wf-card.wf-card .wf-pill.blue:active{--btn-bg:var(--color-action-primary-pressed);--btn-border:var(--color-action-primary-pressed)}
+.ds.ds.ds .wf-card.wf-card .wf-save{--ib-bg:var(--color-action-primary);--ib-border:var(--color-action-primary);--ib-fg:var(--color-text-on-action);--ib-ring:var(--color-border-focus)}
+.ds.ds.ds .wf-card.wf-card .wf-save:hover{--ib-bg:var(--color-action-primary-hover);--ib-border:var(--color-action-primary-hover)}
+.ds.ds.ds .wf-card.wf-card .wf-save:active{--ib-bg:var(--color-action-primary-pressed);--ib-border:var(--color-action-primary-pressed)}
+/* Expired: greyed out */
+.ds.ds.ds .wf-card.is-expired{background:var(--color-surface-subtle);box-shadow:none}
+.ds.ds .wf-card.is-expired .wf-card-media,.ds.ds .wf-card.is-expired .wf-card-logo img{filter:grayscale(1);opacity:.6}
+.ds.ds.ds .wf-card.is-expired h3,.ds.ds.ds .wf-card.is-expired h3 a,.ds.ds .wf-card.is-expired .wf-card-meta{color:var(--color-text-secondary)}
+.ds.ds.ds .wf-card.wf-card.is-expired .wf-pill.blue,.ds.ds.ds .wf-card.wf-card.is-expired .wf-save{--btn-bg:transparent;--btn-border:var(--color-text-secondary);--btn-fg:var(--color-text-secondary);--ib-bg:transparent;--ib-border:var(--color-text-secondary);--ib-fg:var(--color-text-secondary)}
+
+
+/* ---------- Round 8 ---------- */
+/* Saved / followed hearts stay JOY blue for every brand */
+.ds.ds .brand-tile .icon-btn[aria-pressed=true]{color:#1443ff;border-color:#1443ff}
+.ds.ds :is(.brand-tile .icon-btn,.wf-save,.wf-pill)[aria-pressed=true] .icon{fill:currentColor}
+.ds.ds.ds.ds .wf-brand-band .wf-pill.ghost-white[aria-pressed=true],.ds.ds.ds.ds .wf-brand-hero .wf-pill.ghost-white[aria-pressed=true]{--btn-bg:#fff;--btn-border:#fff;--btn-fg:#1443ff}
+
+/* Card footer: See promo fills the row, heart sits in its circle on the right */
+.ds.ds .wf-card-foot .wf-pill{flex:1}
+.ds.ds.ds.ds .wf-save{display:inline-flex;align-items:center;justify-content:center;padding:0}
+.ds.ds.ds.ds .wf-save .icon{width:20px;height:20px;margin:0;stroke-width:2}
+
+/* ---------- Realistic prize objects ---------- */
+.po-fit{display:grid;place-items:center;transform:scale(var(--po-scale,1));transform-origin:center}
+[data-brand]{--pa:#1443ff;--pb:#0024b5;--pc:#75def2}
+[data-brand="Doritos"]{--pa:#e31722;--pb:#7a0a10;--pc:#fa7115}
+[data-brand="Pepsi"]{--pa:#004b93;--pb:#00205b;--pc:#e32934}
+[data-brand="Rockstar"]{--pa:#2a2a2a;--pb:#050505;--pc:#f2c230}
+[data-brand="7UP"]{--pa:#00a651;--pb:#00592b;--pc:#c9ee26}
+.po{position:relative;flex:none;font-family:var(--font-family-body);color:#fff;text-align:left}
+.po-img{display:block;width:240px;height:170px;object-fit:contain;filter:drop-shadow(0 10px 14px #0006)}
+.po-img.po-packs{width:260px;object-fit:cover;object-position:38% 66%;transform:scale(1.6);border-radius:8px}
+/* Gift card (credit-card proportions) */
+.po-giftcard{width:240px;height:151px;border-radius:14px;padding:16px 18px;overflow:hidden;background:radial-gradient(circle at 85% -10%,#ffffff40 0 30%,transparent 31%),radial-gradient(circle at 110% 120%,var(--pc) 0 38%,transparent 39%),linear-gradient(135deg,var(--pa),var(--pb));box-shadow:0 14px 26px #0007,inset 0 0 0 1px #ffffff26;transform:rotate(-6deg)}
+.po-gc-logo{position:absolute;left:16px;top:14px;display:grid;place-items:center;height:28px;padding:3px 8px;border-radius:6px;background:#fff}
+.po-gc-logo img{height:22px;width:auto;max-width:70px;object-fit:contain}
+.po-chip{position:absolute;left:18px;top:56px;width:34px;height:26px;border-radius:5px;background:linear-gradient(135deg,#f6e27a,#c9a227 60%,#f3d567);box-shadow:inset 0 0 0 1px #8a6d13}
+.po-chip::before{content:"";position:absolute;inset:7px 10px;border:1px solid #8a6d13;border-radius:2px}
+.po-giftcard .po-amount{position:absolute;right:18px;top:14px;font-size:30px;line-height:32px;font-weight:700;letter-spacing:-.5px}
+.po-gc-label{position:absolute;left:18px;bottom:30px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.po-gc-num{position:absolute;left:18px;bottom:12px;font-size:12px;letter-spacing:2px;opacity:.85}
+[data-brand="Rockstar"].po-giftcard{color:var(--pc)}
+/* Cash prize note (generic, not a real banknote) */
+.po-cash{width:250px;height:124px;border-radius:8px;color:#1f4d2e;background:repeating-linear-gradient(45deg,#ffffff1a 0 6px,transparent 6px 12px),linear-gradient(135deg,#d9eccf,#a9d39a);box-shadow:0 12px 22px #0006,inset 0 0 0 6px #ffffff8c,inset 0 0 0 7px #2f6b3f;transform:rotate(-5deg)}
+.po-cash .po-amount{position:absolute;inset:0;display:grid;place-items:center;font-size:44px;font-weight:700;letter-spacing:-1px}
+.po-cash-seal{position:absolute;right:26px;top:50%;width:46px;height:46px;margin-top:-23px;border-radius:50%;border:3px double #2f6b3f;opacity:.5}
+.po-cash-corner{position:absolute;left:16px;top:12px;font-size:16px;font-weight:700}
+.po-cash-corner.br{left:auto;top:auto;right:16px;bottom:12px}
+.po-cash-label{position:absolute;left:0;right:0;bottom:16px;text-align:center;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+/* Event ticket with tear-off stub */
+.po-ticket{display:flex;width:260px;height:112px;filter:drop-shadow(0 12px 18px #0007);transform:rotate(-6deg)}
+.po-tk-main{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 16px 0 22px;border-radius:10px 0 0 10px;background:#fff;color:#111}
+.po-tk-main::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;border-radius:10px 0 0 10px;background:var(--pa)}
+.po-tk-top{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--pa)}
+.po-tk-main strong{font-size:30px;line-height:32px;font-weight:700}
+.po-tk-sub{font-size:11px;color:#555}
+.po-tk-stub{display:flex;flex-direction:column;align-items:center;justify-content:center;width:66px;border-radius:0 10px 10px 0;border-left:2px dashed #ffffffb3;background:linear-gradient(180deg,var(--pa),var(--pb));color:#fff}
+.po-tk-stub span{font-size:10px;font-weight:700;letter-spacing:1.5px}
+.po-tk-stub strong{font-size:30px;line-height:32px}
+/* Festival lanyard pass */
+.po-pass{width:150px;height:236px;transform:rotate(-8deg)}
+.po-lanyard{position:absolute;left:50%;top:-40px;width:22px;height:70px;margin-left:-11px;background:repeating-linear-gradient(180deg,var(--pa) 0 12px,var(--pc) 12px 16px);border-radius:3px}
+.po-clip{position:absolute;left:50%;top:24px;width:18px;height:14px;margin-left:-9px;border-radius:3px;background:linear-gradient(#e6e6e6,#9a9a9a)}
+.po-pass-card{position:absolute;left:0;right:0;top:34px;bottom:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding:26px 12px 14px;border-radius:12px;background:#fff;color:#111;box-shadow:0 14px 24px #0007;text-align:center}
+.po-hole{position:absolute;top:8px;left:50%;width:30px;height:7px;margin-left:-15px;border-radius:4px;background:#d6d8de}
+.po-pass-band{align-self:stretch;margin:0 -12px;padding:6px 0;background:linear-gradient(90deg,var(--pa),var(--pb));color:#fff;font-size:11px;font-weight:700;letter-spacing:3px}
+[data-brand="Rockstar"] .po-pass-band{color:var(--pc)}
+.po-pass-card strong{font-size:24px;line-height:26px}
+.po-pass-sub{font-size:10px;color:#555}
+.po-barcode{width:100%;height:30px;margin-top:auto;background:repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 4px,#111 4px 5px,transparent 5px 8px,#111 8px 11px,transparent 11px 12px)}
+/* Boarding pass */
+.po-boarding{width:270px;height:132px;overflow:hidden;border-radius:12px;background:#fff;color:#111;box-shadow:0 14px 24px #0007;transform:rotate(-5deg)}
+.po-bp-head{display:flex;align-items:center;gap:8px;height:32px;padding:0 14px;background:linear-gradient(90deg,var(--pa),var(--pb));color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.po-plane{width:16px;height:16px;fill:currentColor;stroke:none}
+.po-bp-route{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 4px}
+.po-bp-route strong{font-size:30px;line-height:32px;font-weight:700}
+.po-bp-line{flex:1;display:flex;justify-content:center;margin:0 10px;border-top:2px dashed #c3c8d8;padding-top:0;color:var(--pa);transform:translateY(-1px)}
+.po-bp-line .po-plane{width:20px;height:20px;margin-top:-11px;background:#fff;transform:rotate(90deg)}
+.po-bp-meta{display:flex;gap:18px;padding:0 16px;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#777}
+.po-bp-meta b{display:block;font-size:13px;letter-spacing:0;color:#111;text-transform:none}
+/* Headset, merch, cans, gift box */
+.po-svg{display:block;width:170px;height:170px;filter:drop-shadow(0 10px 14px #0006)}
+.po-svg .po-accent{fill:var(--pc)}
+.po-merch{width:170px;height:170px}
+.po-tee{fill:var(--pa)}
+[data-brand="Rockstar"] .po-tee{fill:#151515}
+.po-merch-logo{position:absolute;left:50%;top:78px;display:grid;place-items:center;width:44px;height:44px;margin-left:-22px;border-radius:50%;background:#fff}
+.po-merch-logo img{width:32px;height:32px;object-fit:contain}
+.po-cans{display:flex;align-items:flex-end;gap:6px;height:170px;filter:drop-shadow(0 12px 16px #0007)}
+.po-can{position:relative;display:grid;place-items:center;width:52px;height:118px;border-radius:12px 12px 10px 10px;background:linear-gradient(90deg,var(--pb),var(--pa) 40%,var(--pb));box-shadow:inset 0 9px 0 #c9cdd4,inset 0 12px 0 #8a8f99}
+.po-can::after{content:"";position:absolute;left:6px;right:6px;top:42%;height:22px;background:#ffffff26}
+.po-can.mid{width:62px;height:140px}
+.po-can.mid img{position:relative;z-index:1;width:46px;height:46px;object-fit:contain;padding:4px;border-radius:50%;background:#fff}
+.po-giftbox .po-box{fill:var(--pa)}
+.po-giftbox .po-lid{fill:var(--pb)}
+.po-giftbox .po-ribbon{fill:var(--pc)}
+
+/* Scale per context */
+.wf-card-artbox{--po-scale:.62}
+.ds-card-prize .ds-card-img{--po-scale:.56}
+.wf-detail-art{--po-scale:1.15}
+.wf-slide-circle{--po-scale:1.35}
+.wf-wide-circle{--po-scale:.95}
+.wf-news-media{--po-scale:1}
+.card-art.obj{display:grid;place-items:center;overflow:visible}
+.ds .ds-card-prize .ds-card-img{background:#eef0f5}
+
+/* ---------- Steps: images of each screen's main component ---------- */
+.ds-card-step.has-desc{height:auto;min-height:420px;padding-top:420px}
+.ds-step-desc{margin:12px 8px 0;text-align:center;color:var(--color-text-secondary);font:400 var(--font-size-14)/var(--line-height-18) var(--font-family-body)}
+.ds-card-step.has-desc .ds-card-img{padding:12px;background:#eef0f5}
+.mock{display:flex;flex-direction:column;justify-content:center;gap:7px;width:100%;height:100%;padding:12px 14px;border-radius:8px;background:#fff;box-shadow:0 2px 8px #0a0f361f;font:400 12px/16px var(--font-family-body);color:#333;text-align:left}
+.mock-title{font-weight:700;font-size:13px;color:#0a0f36}
+.mock-row{display:flex;align-items:center;gap:8px}
+.mock-box{display:grid;place-items:center;flex:none;width:16px;height:16px;border-radius:4px;background:var(--color-action-primary);color:#fff;font-style:normal}
+.mock-box .icon{width:11px;height:11px;stroke-width:3}
+.mock-input{display:flex;align-items:center;height:30px;padding:0 12px;border:2px solid var(--color-border-action);border-radius:32px;font-weight:600;letter-spacing:1px}
+.mock-caret{width:1px;height:14px;margin-left:2px;background:#333;animation:mock-blink 1s steps(2) infinite}
+@keyframes mock-blink{50%{opacity:0}}
+.mock-btn{align-self:flex-start;padding:6px 14px;border-radius:32px;background:var(--color-action-primary);color:#fff;font-size:11px;font-weight:600;text-transform:uppercase}
+.mock-result{align-items:center;text-align:center;gap:4px}
+.mock-result strong{font-size:15px;line-height:18px;color:#0a0f36}
+.mock-result span:last-child{font-size:11px;color:#666}
+.mock-badge{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--color-feedback-active);color:#0a0f36}
+.mock-badge .icon{width:18px;height:18px}
+
+/* ---------- Loading screen inside the right-hand panel; the Result step fills up ---------- */
+.wf-reveal.in-stage{min-height:0;padding:16px 0 8px;background:none}
+.wf-reveal.in-stage h1{font-size:28px;line-height:34px}
+.participation .flow-steps span.done{color:#fff;border-color:#ffe600}
+.participation .flow-steps .current.loading{position:relative;border-color:#ffffff33}
+.participation .flow-steps .current.loading::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:#ffe600;transform-origin:left;transform:scaleX(0);animation:wf-meter 3.4s linear forwards}
+@media(prefers-reduced-motion:reduce){.mock-caret{animation:none}.participation .flow-steps .current.loading::after{animation:none;transform:none}}
+.wf-card-artbox .po-fit:has(.po-pass){--po-scale:.5}
+.ds-card-prize .ds-card-img{--po-scale:.8}
+.ds-card-prize .po-fit:has(.po-pass){--po-scale:.52}
+.participation[data-theme="7UP"] .participation-copy{background:#007a37}
+
+/* ---------- Round 9: promo hero like joy-pepsico.eu (banner + brand band), real prize photos ---------- */
+.wf-detail-banner{background:#000;line-height:0}
+.wf-detail-banner img{display:block;width:100%;height:auto}
+.wf-detail-banner.brand img{aspect-ratio:2880/730;object-fit:cover}
+.wf-detail-band{position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;align-items:center;gap:12px;padding:48px 24px 56px;text-align:center;color:#fff;background:#0e38df}
+.wf-detail-band[data-brand="Doritos"]{background:#e31722}
+.wf-detail-band[data-brand="Pepsi"]{background:#004b93}
+.wf-detail-band[data-brand="Rockstar"]{background:#000}
+.wf-detail-band[data-brand="7UP"]{background:#007a37}
+.wf-band-deco{position:absolute;z-index:-1;width:200px;height:auto;pointer-events:none}
+.wf-band-deco.one{left:-60px;top:50%;transform:translateY(-50%)}
+.wf-band-deco.two{right:-60px;top:50%;transform:translateY(-50%) scaleX(-1)}
+.wf-detail-band .wf-dates{color:#fff}
+.ds.ds.ds .wf-detail-band h1{margin:0;font:700 var(--font-size-36)/var(--line-height-40) var(--font-family-body);color:#fff;letter-spacing:0}
+.wf-detail-sub{margin:0;color:#fff;font:600 var(--font-size-16)/var(--line-height-20) var(--font-family-body)}
+.ds.ds.ds.ds .wf-detail-band .wf-btn{margin-top:8px;border-radius:44px;padding:12px 28px}
+.ds .wf-detail-band .wf-btn{--btn-bg:#fff;--btn-border:#fff;--btn-fg:#0e38df;--btn-ring:#fff}
+.ds .wf-detail-band:is([data-brand="Walkers"],[data-brand="JOY"]) .wf-btn{--btn-bg:#ffe600;--btn-border:#ffe600}
+.ds.ds.ds.ds .wf-detail-band .wf-btn.disabled{opacity:.6;cursor:not-allowed;text-decoration:none}
+.ds .wf-detail-band+.wf-subnav{border-top:0}
+
+/* Real prize photos (656x656 round cut-outs) in the prize card */
+.ds-card-prize.has-photo .ds-prize-photo{position:absolute;left:64px;top:102px;width:200px;height:200px;object-fit:contain;filter:drop-shadow(0 8px 14px #0005)}
+.ds-card-prize.has-photo .ds-card-qty{top:312px}
+.ds-card-prize.has-photo>strong{top:338px;font-size:var(--font-size-16);line-height:var(--line-height-20)}
+
+@media(max-width:700px){
+.wf-detail-band{padding:36px 20px 44px}
+.ds.ds.ds .wf-detail-band h1{font-size:var(--font-size-24);line-height:var(--line-height-28)}
+.wf-band-deco{width:120px}
+.wf-band-deco.one{left:-50px}.wf-band-deco.two{right:-50px}
+}
+@media(max-width:700px){.ds.ds.ds.ds .wf-prizes .wf-arrow{display:none}.ds.ds .wf-prize-track{justify-content:flex-start}}

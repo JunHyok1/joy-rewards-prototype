@@ -657,3 +657,8 @@
 
 /* Promos filters: custom chevron inset to match the 20px text padding */
 .ds.ds.ds.ds .wf-filter-bar select{-webkit-appearance:none;appearance:none;padding-right:52px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 20px center;background-size:20px 20px;text-overflow:ellipsis;cursor:pointer}
+
+/* Expired promos: not clickable, no hover/pressed feedback */
+.wf-card.wf-card.is-expired:hover{transform:none;box-shadow:0 6px 16px #00144b14}
+.wf-card.is-expired .wf-pill.is-disabled,.wf-wide.is-expired .wf-pill.is-disabled{cursor:default;pointer-events:none;user-select:none;text-decoration:none}
+.ds.ds.ds .wf-card.wf-card.is-expired .wf-pill.is-disabled,.ds.ds.ds .wf-wide.is-expired .wf-pill.is-disabled{--btn-bg:transparent;--btn-border:var(--color-text-secondary);--btn-fg:var(--color-text-secondary);background:transparent;border-color:var(--color-text-secondary);color:var(--color-text-secondary)}

@@ -660,5 +660,6 @@
 
 /* Expired promos: not clickable, no hover/pressed feedback */
 .wf-card.wf-card.is-expired:hover{transform:none;box-shadow:0 6px 16px #00144b14}
-.wf-card.is-expired .wf-pill.is-disabled,.wf-wide.is-expired .wf-pill.is-disabled{cursor:default;pointer-events:none;user-select:none;text-decoration:none}
+.wf-card.is-expired .wf-pill.is-disabled,.wf-wide.is-expired .wf-pill.is-disabled,.wf-card.is-expired .wf-save.is-disabled{cursor:default;pointer-events:none;user-select:none;text-decoration:none}
 .ds.ds.ds .wf-card.wf-card.is-expired .wf-pill.is-disabled,.ds.ds.ds .wf-wide.is-expired .wf-pill.is-disabled{--btn-bg:transparent;--btn-border:var(--color-text-secondary);--btn-fg:var(--color-text-secondary);background:transparent;border-color:var(--color-text-secondary);color:var(--color-text-secondary)}
+.ds.ds.ds .wf-card.wf-card.is-expired .wf-save.is-disabled{--ib-bg:transparent;--ib-border:var(--color-text-secondary);--ib-fg:var(--color-text-secondary);opacity:1}
